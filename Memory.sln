@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Memory", "Memory\Memory.vcxproj", "{250DFA76-CF7D-4671-B24C-E62FEC78B946}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01HeapStacks", "Memory\Memory.vcxproj", "{250DFA76-CF7D-4671-B24C-E62FEC78B946}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05FileIO", "05FileIO\05FileIO.vcxproj", "{5480BC51-B337-48DA-B751-8AEFAED337DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{250DFA76-CF7D-4671-B24C-E62FEC78B946}.Release|x64.Build.0 = Release|x64
 		{250DFA76-CF7D-4671-B24C-E62FEC78B946}.Release|x86.ActiveCfg = Release|Win32
 		{250DFA76-CF7D-4671-B24C-E62FEC78B946}.Release|x86.Build.0 = Release|Win32
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Debug|x64.ActiveCfg = Debug|x64
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Debug|x64.Build.0 = Debug|x64
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Debug|x86.ActiveCfg = Debug|Win32
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Debug|x86.Build.0 = Debug|Win32
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Release|x64.ActiveCfg = Release|x64
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Release|x64.Build.0 = Release|x64
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Release|x86.ActiveCfg = Release|Win32
+		{5480BC51-B337-48DA-B751-8AEFAED337DB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
