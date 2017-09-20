@@ -1,28 +1,30 @@
+// NOTE: This is a very rough-around-the-edges version of rock, paper, scissors. It has some problems, but it's functional, and primarily serves as a base for the text file code. 
+
 #include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
 
-int main() 
+int main()
 {
-	enum input { rock, paper, scissors };
-	input select;
 	char player;
 	bool anotherRound;
-	string play;
 	int gamesPlayed = 0;
 	int playerWinCount = 0;
 	int compWinCount = 0;
 	bool tie = false;
+	enum input { rock, paper, scissors };
+	input pick;
+	string game;
 
 	ofstream outfile;
 	ifstream infile;
 
 
 	cout << "Would you like to play Rock, Paper, Scissors? (Please press 'y' or 'n')" << endl;
-	cin >> play;
+	cin >> game;
 
-	if (play == "y" || play == "Y") 
+	if (game == "y" || game == "Y")
 	{
 		anotherRound = true;
 		gamesPlayed++;
@@ -30,30 +32,36 @@ int main()
 		infile >> playerWinCount >> compWinCount;
 		infile.close();
 	}
+	else
+	{
+		anotherRound = false;
+		cout << "Well fine then, I didn't want to play with you anyway! >:(" << endl;
+		while (true) {}
+	}
 
-	while (anotherRound != false) 
+	while (anotherRound != false)
 	{
 		cout << "" << endl << "Do you wish to select rock ('r'), paper ('p'), or scissors ('s')?" << endl;
 		cin >> player;
 		cout << endl;
 
 
-		if (player == 'r' || player == 'R') 
+		if (player == 'r' || player == 'R')
 		{
-			select = rock;
+			pick = rock;
 		}
 
-		else if (player == 'p' || player == 'P') 
+		else if (player == 'p' || player == 'P')
 		{
-			select = paper;
+			pick = paper;
 		}
 
-		else if (player == 's' || player == 'S') 
+		else if (player == 's' || player == 'S')
 		{
-			select = scissors;
+			pick = scissors;
 		}
 
-		else 
+		else
 		{
 			cout << "I'm sorry, I'm afraid that wasn't an option." << endl;
 			cout << endl << endl << "Do you wish to select rock ('r'), paper ('p'), or scissors ('s')?" << endl;
@@ -63,27 +71,27 @@ int main()
 		int computer = rand();
 		computer = rand() % 3;
 
-		while (computer == select) 
+		while (computer == pick)
 		{
 			cout << endl << "You both picked that one, so it was a tie. Please pick again. ('r', 'p', 's')" << endl;
 			cin >> player;
 
-			if (player == 'r' || player == 'R') 
+			if (player == 'r' || player == 'R')
 			{
-				select = rock;
+				pick = rock;
 			}
 
-			else if (player == 'p' || player == 'P') 
+			else if (player == 'p' || player == 'P')
 			{
-				select = paper;
+				pick = paper;
 			}
 
-			else if (player == 's' || player == 'S') 
+			else if (player == 's' || player == 'S')
 			{
-				select = scissors;
+				pick = scissors;
 			}
 
-			else 
+			else
 			{
 				cout << "I'm sorry, I'm afraid that wasn't an option." << endl;
 				cout << endl << endl << "Do you wish to select rock ('r'), paper ('p'), or scissors ('s')?" << endl;
@@ -96,32 +104,32 @@ int main()
 
 		input compChoice;
 
-		if (computer == 0) 
+		if (computer == 0)
 		{
 			compChoice = rock;
 		}
 
-		else if (computer == 1) 
+		else if (computer == 1)
 		{
 			compChoice = paper;
 		}
 
-		else if (computer == 2) 
+		else if (computer == 2)
 		{
 			compChoice = scissors;
 		}
 
 		cout << "The computer chose " << compChoice << endl;
 
-		if ((select == rock && compChoice == scissors) || (select == paper && compChoice == rock) || (select == scissors && compChoice == paper)) 
+		if ((pick == rock && compChoice == scissors) || (pick == paper && compChoice == rock) || (pick == scissors && compChoice == paper))
 		{
-			cout << "" << endl << select << " beats " << compChoice << ". You won!" << endl;
+			cout << "" << endl << pick << " beats " << compChoice << ". You won!" << endl;
 			playerWinCount++;
 		}
 
-		else if ((compChoice == rock && select == scissors) || (compChoice == paper && select == rock) || (compChoice == scissors && select == paper)) 
+		else if ((compChoice == rock && pick == scissors) || (compChoice == paper && pick == rock) || (compChoice == scissors && pick == paper))
 		{
-			cout << "" << endl << compChoice << " beats " << select << ". The computer won." << endl;
+			cout << "" << endl << compChoice << " beats " << pick << ". The computer won." << endl;
 			compWinCount++;
 		}
 
@@ -129,13 +137,13 @@ int main()
 		cout << "Your opponent has won " << compWinCount << " time(s)." << endl;
 
 		cout << "" << endl << "Would you like to play again? (Please enter 'y' or 'n')" << endl;
-		cin >> play;
+		cin >> game;
 
-		if (play == "n" || play == "N") 
+		if (game == "n" || game == "N")
 		{
 			anotherRound = false;
 		}
-		else if (play == "y" || play == "Y") 
+		else if (game == "y" || game == "Y")
 		{
 			gamesPlayed++;
 		}
